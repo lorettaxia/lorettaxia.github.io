@@ -38,7 +38,7 @@
 		
 		function configure() {
 		console.log("configure");
-			const popupUrl = './uiDialog.html';
+			const popupUrl = 'https://lorettaxia.github.io/uiDialog.html';
 			tableau.extensions.ui.displayDialogAsync(popupUrl, defaultParameter, { height: 500, width: 500 }).then((closePayload) => {
 			  // The promise is resolved when the dialog has been expectedly closed, meaning that
 			  // the popup extension has called tableau.extensions.ui.closeDialog.
