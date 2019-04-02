@@ -151,7 +151,7 @@
 	//console.log(parameterSettingsKey);
 	//console.log(JSON.stringify(selectedParameters[0]));
     
-	tableau.extensions.settings.saveAsync().then((newSavedSettings) => {
+	tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	  console.log('Settings Saved.');
       tableau.extensions.ui.closeDialog('');
 	 // tableau.extensions.ui.closeDialog($('#filter').val());
