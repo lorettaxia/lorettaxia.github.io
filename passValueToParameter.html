@@ -61,6 +61,7 @@
 			});
 		}
 		
+		/*
 		function updateExtensionBasedOnSettings(settings){
 			if(settings.selectedParameters) {
 			console.log('selected parameter');
@@ -74,13 +75,14 @@
 			}
 			
 			
-		}
+		} */
 		
 		function fetchFilters(){
 				
 			ParameterToBeChanged = tableau.extensions.settings.get("selectedParameters");
 			correspondingFilter = tableau.extensions.settings.get("selectedFilters");
-
+			console.log(correspondingFilter);
+			console.log(ParameterToBeChanged);
 				unregisterHandlerFunctions.forEach(function (unregisterHandlerFunction) {
 					unregisterHandlerFunction();
 				});
