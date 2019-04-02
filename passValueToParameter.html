@@ -23,7 +23,7 @@
 		
 		$(document).ready(function() {
 				tableau.extensions.initializeAsync({'configure': configure}).then(function() {
-					//fetchFilters();
+					fetchFilters(tableau.extensions.settings);
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
 					console.log("setting changed");
 				//	updateExtensionBasedOnSettings(settingsEvent.newSettings);
