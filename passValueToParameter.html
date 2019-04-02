@@ -22,14 +22,15 @@
 			var unregisterHandlerFunctions = [];
 		
 		$(document).ready(function() {
-				tableau.extensions.initializeAsync({'configure': configure}).then(function() {
-					ParameterToBeChanged = tableau.extensions.settings.get('selectedParameters');
+			ParameterToBeChanged = tableau.extensions.settings.get('selectedParameters');
 					correspondingFilter = tableau.extensions.settings.get('selectedFilters');
 					console.log(ParameterToBeChanged);
 
 					console.log(correspondingFilter);
 					
 					fetchFilters();
+				tableau.extensions.initializeAsync({'configure': configure}).then(function() {
+					
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
 					console.log("setting changed");
 					updateExtensionBasedOnSettings(settingsEvent.newSettings);
