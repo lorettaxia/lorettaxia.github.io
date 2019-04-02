@@ -16,8 +16,8 @@
 		
 		(function () {
 			const defaultParameter = 'Product_P_C';
-			let ParameterToBeChanged = '';
-			let correspondingFilter = '';
+			let ParameterToBeChanged = tableau.extensions.settings.get('selectedParameters');
+			let correspondingFilter = tableau.extensions.settings.get('selectedFilters');
 			
 			let unregisterHandlerFunctions = [];
 		
