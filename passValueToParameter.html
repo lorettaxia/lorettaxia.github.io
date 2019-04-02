@@ -25,9 +25,9 @@
 				tableau.extensions.initializeAsync({'configure': configure}).then(function() {
 					ParameterToBeChanged = tableau.extensions.settings.get('selectedParameters');
 					correspondingFilter = tableau.extensions.settings.get('selectedFilters');
-					consloe.log(ParameterToBeChanged);
+					console.log(ParameterToBeChanged);
 
-					consloe.log(correspondingFilter);
+					console.log(correspondingFilter);
 					
 					fetchFilters();
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
