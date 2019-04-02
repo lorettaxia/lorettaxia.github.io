@@ -23,11 +23,11 @@
 		
 		$(document).ready(function() {
 				tableau.extensions.initializeAsync({'configure': configure}).then(function() {
-					fetchFilters(tableau.extensions.settings);
+					fetchFilters();
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
 					console.log("setting changed");
 				//	updateExtensionBasedOnSettings(settingsEvent.newSettings);
-					fetchFilters(settingsEvent.newSettings);
+					fetchFilters();
 				});
 				
 				 			
@@ -76,9 +76,10 @@
 			
 		}
 		
-		function fetchFilters(settings){
+		function fetchFilters(){
 				
-			 	updateExtensionBasedOnSettings(settings);
+			ParameterToBeChanged = tableau.extensions.settings.get("selectedParameters");
+			correspondingFilter = tableau.extensions.settings.get("selectedFilters");
 
 				unregisterHandlerFunctions.forEach(function (unregisterHandlerFunction) {
 					unregisterHandlerFunction();
