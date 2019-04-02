@@ -15,7 +15,7 @@
 		<script>
 		
 		(function () {
-			const defaultParameter = 'Product_P_C';
+			
 			let ParameterToBeChanged = '';
 			let correspondingFilter = '';
 			
@@ -23,14 +23,16 @@
 		
 		$(document).ready(function() {
 				tableau.extensions.initializeAsync({'configure': configure}).then(function() {
-					
+					ParameterToBeChanged = tableau.extensions.settings.get('selectedParameters');
+					correspondingFilter = tableau.extensions.settings.get('selectedFilters');
+					fetchFilters();
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
 					console.log("setting changed");
 					updateExtensionBasedOnSettings(settingsEvent.newSettings);
 					fetchFilters();
 				});
 				
-				fetchFilters();
+				
 				 			
 			});			
 		});
@@ -78,8 +80,6 @@
 		
 		function fetchFilters(){
 				
-			 
-
 				unregisterHandlerFunctions.forEach(function (unregisterHandlerFunction) {
 					unregisterHandlerFunction();
 				});
