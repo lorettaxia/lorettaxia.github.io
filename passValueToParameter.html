@@ -26,8 +26,8 @@
 					
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
 					console.log("setting changed");
-				//	updateExtensionBasedOnSettings(settingsEvent.newSettings);
-					fetchFilters(settingsEvent.newSettings);
+					updateExtensionBasedOnSettings(settingsEvent.newSettings);
+					fetchFilters();
 				});
 				
 				 			
@@ -76,9 +76,9 @@
 			
 		}
 		
-		function fetchFilters(settings){
+		function fetchFilters(){
 				
-			 	updateExtensionBasedOnSettings(settings);
+			 
 
 				unregisterHandlerFunctions.forEach(function (unregisterHandlerFunction) {
 					unregisterHandlerFunction();
