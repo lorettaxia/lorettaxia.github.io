@@ -27,10 +27,10 @@
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
 					console.log("setting changed");
 					updateExtensionBasedOnSettings(settingsEvent.newSettings);
+					fetchFilters();
 				});
 				
-				 fetchFilters();
-				
+				 			
 				
 			});			
 		});
@@ -83,6 +83,8 @@
 				});
 				
 				var dashboard = tableau.extensions.dashboardContent.dashboard;
+				//var selectedParameters = tableau.extensions.settings.get("selectedParameters");
+				//var selectedFilters = tableau.extensions.settings.get("selectedFilters");
 			
 				//dashboard.addEventListener(tableauSoftware.TableauEventName.FILTER_CHANGE, onFilterChangeProduct);
 				
