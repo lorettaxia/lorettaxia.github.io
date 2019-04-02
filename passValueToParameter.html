@@ -23,11 +23,11 @@
 		
 		$(document).ready(function() {
 				tableau.extensions.initializeAsync({'configure': configure}).then(function() {
-					fetchFilters();
+					
 				tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {	
 					console.log("setting changed");
 				//	updateExtensionBasedOnSettings(settingsEvent.newSettings);
-					fetchFilters();
+					fetchFilters(settingsEvent.newSettings);
 				});
 				
 				 			
@@ -61,7 +61,6 @@
 			});
 		}
 		
-		/*
 		function updateExtensionBasedOnSettings(settings){
 			if(settings.selectedParameters) {
 			console.log('selected parameter');
@@ -75,14 +74,12 @@
 			}
 			
 			
-		} */
+		}
 		
-		function fetchFilters(){
+		function fetchFilters(settings){
 				
-			ParameterToBeChanged = JSON.parse(tableau.extensions.settings.get("selectedParameters"));
-			correspondingFilter = JSON.parse(tableau.extensions.settings.get("selectedFilters"));
-			console.log(correspondingFilter);
-			console.log(ParameterToBeChanged);
+			 	updateExtensionBasedOnSettings(settings);
+
 				unregisterHandlerFunctions.forEach(function (unregisterHandlerFunction) {
 					unregisterHandlerFunction();
 				});
@@ -138,7 +135,7 @@
 			filters.forEach(function(filter){
 				
 				if (filter.fieldName == filterName) {
-					console.log('PASSING');
+				//	console.log(filter);
 					var valuesFromFilter = filter.appliedValues; //selections from filter
 					
 					//console.log(valuesFromFilter);
