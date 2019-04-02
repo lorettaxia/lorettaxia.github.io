@@ -79,8 +79,8 @@
 		
 		function fetchFilters(){
 				
-			ParameterToBeChanged = tableau.extensions.settings.get("selectedParameters");
-			correspondingFilter = tableau.extensions.settings.get("selectedFilters");
+			ParameterToBeChanged = JSON.parse(tableau.extensions.settings.get("selectedParameters"));
+			correspondingFilter = JSON.parse(tableau.extensions.settings.get("selectedFilters"));
 			console.log(correspondingFilter);
 			console.log(ParameterToBeChanged);
 				unregisterHandlerFunctions.forEach(function (unregisterHandlerFunction) {
@@ -138,7 +138,7 @@
 			filters.forEach(function(filter){
 				
 				if (filter.fieldName == filterName) {
-				//	console.log(filter);
+					console.log('PASSING');
 					var valuesFromFilter = filter.appliedValues; //selections from filter
 					
 					//console.log(valuesFromFilter);
